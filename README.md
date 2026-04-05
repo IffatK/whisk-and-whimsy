@@ -92,7 +92,7 @@ cd whisk-and-whimsy
 
 ```
 cd backend
-npm install
+bun install
 ```
 
 Create a `.env` file:
@@ -106,7 +106,7 @@ JWT_SECRET=your_secret_key
 Run backend:
 
 ```
-npm start
+bun run dev
 ```
 
 ---
@@ -115,8 +115,8 @@ npm start
 
 ```
 cd frontend
-npm install
-npm start
+bun install
+bun run dev
 ```
 
 ---
