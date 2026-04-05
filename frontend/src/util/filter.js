@@ -1,13 +1,17 @@
 export const category = [
-  { for: "Cookies & Biscuits", labelName: "Cookies & Biscuits" },
-  { for: "Cupcakes & Muffins", labelName: "Cupcakes & Muffins" },
-  { for: "Cakes & Cheesecakes", labelName: "Cakes & Cheesecakes" },
-  { for: "Doughnuts & Pastries", labelName: "Doughnuts & Pastries" },
-  { for: "Puddings & Custards", labelName: "Puddings & Custards" },
-  { for: "Chocolates & Truffles", labelName: "Chocolates & Truffles" },
+  { labelName: "Cookies & Biscuits",   for: "Cookies" },
+  { labelName: "Cupcakes & Muffins",   for: "Cupcakes" },
+  { labelName: "Cakes & Cheesecakes",  for: "Cakes" },
+  { labelName: "Doughnuts & Pastries", for: "Pastries" },
+  { labelName: "Puddings & Custards",  for: "Puddings" },
+  { labelName: "Brownies",             for: "Brownies" },
+  { labelName: "Mousses",              for: "Mousses" },
+  { labelName: "Tarts",                for: "Tarts" },
 ];
+
 export const price = [
-  { for: (price) => price > 10 && price <= 50, labelName: "$10 to $50" },
-  { for: (price) => price > 50 && price <= 150, labelName: "$50 to $150" },
-  { for: (price) => price > 150, labelName: "$150 +" },
+  { labelName: "Under ₹200",    fn: (p) => parseFloat(p) < 200 },
+  { labelName: "₹200 to ₹400", fn: (p) => parseFloat(p) >= 200 && parseFloat(p) <= 400 },
+  { labelName: "₹400 to ₹600", fn: (p) => parseFloat(p) > 400 && parseFloat(p) <= 600 },
+  { labelName: "Above ₹600",   fn: (p) => parseFloat(p) > 600 },
 ];

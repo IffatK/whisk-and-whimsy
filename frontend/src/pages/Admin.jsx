@@ -1,10 +1,10 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback,useEffect } from "react";
 import "../styles/admin.css";
-import { MOCK_PRODUCTS, MOCK_ORDERS, MOCK_USERS } from "../components/admin/data";
+
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 import Sidebar from "../components/admin/Sidebar";
 import { Toast } from "../components/admin/charts";
-
+import api,{ fetchAllOrders, fetchAllUsers } from "../services/api";
 export default function Admin() {
   // ✅ Auth check from localStorage — set by Login.jsx on successful admin login
   const token = localStorage.getItem("token");
@@ -22,9 +22,9 @@ export default function Admin() {
 // ─── Separated so hooks aren't called conditionally ──────────────────────────
 function AdminShell({ user }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [products, setProducts] = useState(MOCK_PRODUCTS);
-  const [orders,   setOrders]   = useState(MOCK_ORDERS);
-  const [users,    setUsers]    = useState(MOCK_USERS);
+const [products, setProducts] = useState([]);
+ const [orders, setOrders] = useState([]);
+const [users, setUsers] = useState([]);
   const [toast,    setToast]    = useState(null);
 
   const location = useLocation();
@@ -51,8 +51,38 @@ function AdminShell({ user }) {
       default:          return "Dashboard";
     }
   };
+  const fetchOrders = async () => {
+  try {
+    const res = await fetchAllOrders();
+    setOrders(res.data.data || res.data);
+  } catch {
+    showToast("❌ Failed to load orders");
+  }
+};
 
+const fetchUsers = async () => {
+  try {
+    const res = await fetchAllUsers();
+    setUsers(res.data.data || res.data);
+  } catch {
+    showToast("❌ Failed to load users");
+  }
+};
+useEffect(() => {
+  fetchProducts();
+  fetchOrders();
+  fetchUsers();
+}, []);
+  const fetchProducts = async () => {
+    try {
+      const res = await api.get("/products");
+      setProducts(res.data.data || res.data);
+    } catch {
+      showToast("❌ Failed to load products");
+    }
+  };
   return (
+
     <div className="admin-shell">
       {sidebarOpen && (
         <div
@@ -105,6 +135,7 @@ function AdminShell({ user }) {
               users,    setUsers,
               showToast,
               user,
+              fetchProducts,
             }}
           />
         </div>

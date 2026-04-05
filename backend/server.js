@@ -35,7 +35,7 @@ app.use(
 // ── Rate Limiter (Global) ────────────────────────────
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
-  max: 100,
+  max: 300,
   message: { error: "Too many requests, try again later." },
 });
 
@@ -58,7 +58,7 @@ app.use("/api/categories", categoryRoutes);
 app.use("/api/cart", cartRoutes);
 app.use("/api/orders", orderRoutes);
 app.use("/api/admin", adminRoutes);
-
+app.use("/api/users", userRoutes);
 app.use("/api/wishlist", wishlistRoutes);
 // ── 404 Handler ──────────────────────────────────────
 app.use((req, res) => {

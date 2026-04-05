@@ -2,12 +2,25 @@ import { useState, useEffect } from "react";
 import { useOutletContext } from "react-router-dom";
 import api from "../../services/api";
 
+// ✅ Must match backend VALID_STATUSES exactly
 const STATUS_COLORS = {
-  pending: { bg: "#fef3c7", color: "#d97706" },
-  shipped: { bg: "#e0e7ff", color: "#4f46e5" },
-  delivered: { bg: "#dcfce7", color: "#16a34a" },
-  cancelled: { bg: "#fee2e2", color: "#dc2626" }
+  pending:          { bg: "#fef9c3", color: "#a16207" }, // warm yellow
+  confirmed:        { bg: "#e0e7ff", color: "#4338ca" }, // indigo
+  preparing:        { bg: "#ffedd5", color: "#c2410c" }, // orange
+  out_for_delivery: { bg: "#dbeafe", color: "#1d4ed8" }, // blue
+  delivered:        { bg: "#dcfce7", color: "#15803d" }, // green
+  cancelled:        { bg: "#fee2e2", color: "#b91c1c" }, // red
 };
+
+// ✅ Labels for display — maps value → human-readable label
+const STATUS_OPTIONS = [
+  { value: "pending",          label: "Pending" },
+  { value: "confirmed",        label: "Confirmed" },
+  { value: "preparing",        label: "Preparing" },
+  { value: "out_for_delivery", label: "Out for Delivery" },
+  { value: "delivered",        label: "Delivered" },
+  { value: "cancelled",        label: "Cancelled" },
+];
 
 const AdminOrders = () => {
   const { showToast } = useOutletContext();
@@ -21,15 +34,16 @@ const AdminOrders = () => {
 
   const fetchOrders = async () => {
     try {
-      const res = await api.get('/orders/all');
-      setOrders(res.data);
+      const res = await api.get("/orders/all");
+     setOrders(res.data.data || []);
     } catch (err) {
-      showToast("❌ Failed to load orders",err);
+      showToast("❌ Failed to load orders", err);
     }
   };
 
   const handleStatusChange = async (id, newStatus) => {
     try {
+      // ✅ newStatus is already e.target.value (a plain string like "confirmed")
       await api.patch(`/orders/${id}/status`, { status: newStatus });
       showToast("📝 Order status updated!");
       fetchOrders();
@@ -38,13 +52,16 @@ const AdminOrders = () => {
     }
   };
 
- const filtered = orders.filter(o =>
-  (statusFilter === "All" || (o.status || "").toLowerCase() === statusFilter.toLowerCase()) &&
-  (
-    (o.id || "").toLowerCase().includes(search.toLowerCase()) ||
-    (o.customer || "").toLowerCase().includes(search.toLowerCase())
-  )
-);
+ const filtered = Array.isArray(orders)
+  ? orders.filter((o) => {
+      return (
+        (statusFilter === "All" ||
+          (o.status || "").toLowerCase() === statusFilter.toLowerCase()) &&
+        ((o.id || "").toLowerCase().includes(search.toLowerCase()) ||
+          (o.customer?.name || "").toLowerCase().includes(search.toLowerCase()))
+      );
+    })
+  : [];
 
   return (
     <div>
@@ -54,61 +71,106 @@ const AdminOrders = () => {
           <div className="page-header-sub">{orders.length} total orders</div>
         </div>
       </div>
-      
+
       <div className="card">
         <div className="table-toolbar">
-          <input className="search-input" placeholder="🔍 Search Order ID or Customer..." value={search} onChange={e => setSearch(e.target.value)} />
-          <select className="filter-select" value={statusFilter} onChange={e => setStatusFilter(e.target.value)}>
-            {["All", "pending", "shipped", "delivered", "cancelled"].map(s => <option key={s} value={s}>{s}</option>)}
+          <input
+            className="search-input"
+            placeholder="🔍 Search Order ID or Customer..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+          {/* ✅ Filter dropdown also uses valid statuses */}
+          <select
+            className="filter-select"
+            value={statusFilter}
+            onChange={(e) => setStatusFilter(e.target.value)}
+          >
+            <option value="All">All</option>
+            {STATUS_OPTIONS.map((s) => (
+              <option key={s.value} value={s.value}>
+                {s.label}
+              </option>
+            ))}
           </select>
         </div>
 
         <table>
           <thead>
             <tr>
-              <th>Order ID</th><th>Customer</th><th>Date</th><th>Total</th><th>Status</th><th>Actions</th>
+              <th>Order ID</th>
+              <th>Customer</th>
+              <th>Date</th>
+              <th>Total</th>
+              <th>Status</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
-            {filtered.map(o => (
-              <tr key={o.id}>
-                <td><strong style={{fontFamily:"monospace"}}>{o.id?.substring(0,8)}</strong></td>
-                <td>
-                  <div style={{fontWeight:500}}>{o.customer}</div>
-                  <div style={{fontSize:11, color:"var(--text-muted)"}}>{o.email}</div>
-                </td>
-                <td>{new Date(o.created_at).toLocaleDateString()}</td>
-                <td><strong>₹{o.total}</strong></td>
-                <td>
-                  <span className="role-pill" style={{background: STATUS_COLORS[o.status]?.bg, color: STATUS_COLORS[o.status]?.color}}>
-                   {o.status?.toLowerCase().toUpperCase()}
-                  </span>
-                </td>
-                <td>
-                  <select 
-                    className="form-input" 
-                    style={{padding: '4px 8px', width: 'auto',margin:"10px 0px",textAlign:"center", display:"flex",alignItems:"center",justifyContent:"center"}}
-                    value={o.status?.toLowerCase()}
-                    onChange={(e) => handleStatusChange(o.id, e.target.value)}
-                  >
-                    <option value="pending">Pending</option>
-                    <option value="shipped">Shipped</option>
-                    <option value="delivered">Delivered</option>
-                    <option value="cancelled">Cancelled</option>
-                  </select>
-                </td>
-              </tr>
-            ))}
+            {filtered.map((o) => {
+              const status = o.status?.toLowerCase() ?? "pending";
+              return (
+                <tr key={o.id}>
+                  <td>
+                    <strong style={{ fontFamily: "monospace" }}>
+                      {o.id?.substring(0, 8)}
+                    </strong>
+                  </td>
+                  <td>
+                    <div style={{ fontWeight: 500 }}>{o.customer?.name}</div>
+                    <div style={{ fontSize: 11, color: "var(--text-muted)" }}>
+                      {o.email}
+                    </div>
+                  </td>
+                  <td>{new Date(o.created_at).toLocaleDateString()}</td>
+                  <td>
+                    <strong>₹{o.total}</strong>
+                  </td>
+                  <td>
+                    {/* ✅ STATUS_COLORS now has all valid keys */}
+                    <span
+                      className="role-pill"
+                      style={{
+                        background: STATUS_COLORS[status]?.bg ?? "#f3f4f6",
+                        color: STATUS_COLORS[status]?.color ?? "#374151",
+                      }}
+                    >
+                      {status.replace(/_/g, " ").toUpperCase()}
+                    </span>
+                  </td>
+                  <td>
+                    <select
+                      className="form-input"
+                      style={{
+                        padding: "4px 8px",
+                        width: "auto",
+                        margin: "10px 0px",
+                      }}
+                      value={status}
+                      onChange={(e) => handleStatusChange(o.id, e.target.value)}
+                    >
+                      {STATUS_OPTIONS.map((s) => (
+                        <option key={s.value} value={s.value}>
+                          {s.label}
+                        </option>
+                      ))}
+                    </select>
+                  </td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
+
         {filtered.length === 0 && (
           <div className="empty-state">
-             <div className="empty-state-icon">📦</div>
-             <div className="empty-state-text">No orders found</div>
+            <div className="empty-state-icon">📦</div>
+            <div className="empty-state-text">No orders found</div>
           </div>
         )}
       </div>
     </div>
   );
 };
+
 export default AdminOrders;

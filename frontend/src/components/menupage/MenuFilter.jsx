@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { category, price } from "../../util/filter";
-
 const MenuFilter = ({ onFilterChange }) => {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedPrice, setSelectedPrice] = useState("");

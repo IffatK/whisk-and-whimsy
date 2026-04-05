@@ -159,6 +159,7 @@
     
     border: 1px solid var(--border); box-shadow: 0 4px 16px var(--shadow);
     position: relative; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s;
+    
   }
   .stat-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px var(--shadow-md); }
   .stat-card-bg { position: absolute; top: -20px; right: -20px; font-size: 80px; opacity: 0.07; }
@@ -170,12 +171,42 @@
   .stat-icon { font-size: 22px; margin-bottom: 10px; }
 
   .dashboard-grid { display: grid; grid-template-columns: 1fr 340px; gap: 20px; }
+.page-content {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 64px); /* minus topbar */
+}
 
+.admin-products-background {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+tbody td {
+  padding: 16px 18px;  
+
+
+  /* was 12px → increase it */
+}
+table {
+  border-collapse: separate;
+  border-spacing: 0 10px;  /* creates gap between rows */
+}
+tbody tr {
+  background: var(--warm-white);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px var(--shadow);
+}
+
+.card {
+  flex: 1;
+  overflow-y: auto;  /* IMPORTANT */
+}
   .card {
     background: var(--warm-white); border-radius: 20px; padding: 24px;
     width: 100%;
     border: 1px solid var(--border); box-shadow: 0 4px 16px var(--shadow);
-  
+     flex: 1;
   }
   .card-title { font-family: 'Playfair Display', serif; font-size: 17px; color: var(--chocolate); margin-bottom: 18px; display: flex; align-items: center; justify-content: space-between; }
   .card-action { font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 600; color: var(--rose); cursor: pointer; border: none; background: none; }
@@ -314,7 +345,7 @@
   .modal-overlay {
     position: fixed; inset: 0; background: rgba(0,0,0,0.35); backdrop-filter: blur(4px);
     z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 20px;
-   
+
   }
   .modal {
     background: var(--warm-white); border-radius: 24px; padding: 32px;

@@ -1,13 +1,39 @@
 import { BarChart } from "./charts";
 import { DonutChart } from "./charts";
-import { WEEKLY_REVENUE, WEEKLY_ORDERS } from "./data";
+
 import { useOutletContext } from "react-router-dom";
 const AdminAnalytics = () => {
-  const { products, orders }= useOutletContext();
-  const totalRevenue = orders.filter(o => o.status !== "Cancelled").reduce((a, o) => a + o.total, 0);
-  const avgOrder = Math.round(totalRevenue / orders.length);
+   const { products, orders }= useOutletContext();
+  const weeklyRevenue = Array(7).fill(0);
+const weeklyOrders = Array(7).fill(0);
 
+orders.forEach(order => {
+  const day = new Date(order.created_at).getDay(); // 0–6
+  weeklyRevenue[day] += Number(order.total || 0);
+  weeklyOrders[day] += 1;
+});
+ 
+  const totalRevenue = orders
+  .filter(o => o.status !== "Cancelled")
+  .reduce((a, o) => a + Number(o.total || 0), 0);
+  const avgOrder = orders.length
+  ? Math.round(totalRevenue / orders.length)
+  : 0;
+const productSales = {};
+
+orders.forEach(order => {
+  const day = new Date(order.date).getDay();
+
+  weeklyRevenue[day] += Number(order.total || 0);
+  weeklyOrders[day] += 1;
+});
+
+const productsWithSales = products.map(p => ({
+  ...p,
+  sales: productSales[p.product_id] || 0
+}));
   return (
+    
     <div>
       <div className="page-header">
         <div>
@@ -34,19 +60,19 @@ const AdminAnalytics = () => {
       <div className="analytics-grid">
         <div className="card">
           <div className="card-title">Weekly Revenue</div>
-          <BarChart data={WEEKLY_REVENUE} max={30000} type="revenue" />
+          <BarChart data={weeklyRevenue} max={Math.max(...weeklyRevenue, 1)} type="revenue" />
           <div style={{ display: "flex", justifyContent: "space-between", marginTop: 12, fontSize: 12, color: "var(--text-muted)" }}>
             <span>Peak: ₹28,600 (Sat)</span>
-            <span>Avg: ₹{Math.round(WEEKLY_REVENUE.reduce((a, b) => a + b) / 7).toLocaleString()}</span>
+            <span>Avg: ₹{Math.round(weeklyRevenue.reduce((a, b) => a + b) / 7).toLocaleString()}</span>
           </div>
         </div>
 
         <div className="card">
           <div className="card-title">Weekly Orders</div>
-          <BarChart data={WEEKLY_ORDERS} max={90} type="orders" />
+          <BarChart data={weeklyOrders} max={Math.max(...weeklyOrders, 1)} type="orders" />
           <div style={{ display: "flex", justifyContent: "space-between", marginTop: 12, fontSize: 12, color: "var(--text-muted)" }}>
             <span>Peak: 84 orders (Sat)</span>
-            <span>Avg: {Math.round(WEEKLY_ORDERS.reduce((a, b) => a + b) / 7)} orders/day</span>
+            <span>Avg: {Math.round(weeklyOrders.reduce((a, b) => a + b) / 7)} orders/day</span>
           </div>
         </div>
 
@@ -63,7 +89,7 @@ const AdminAnalytics = () => {
 
         <div className="card">
           <div className="card-title">Top Products by Revenue</div>
-          {[...products].sort((a, b) => b.sales * b.price - a.sales * a.price).slice(0, 5).map((p, i) => (
+          {[...productsWithSales].sort((a, b) => b.sales * b.price - a.sales * a.price).slice(0, 5).map((p, i) => (
             <div key={i} style={{ display: "flex", alignItems: "center", gap: 10, padding: "8px 0", borderBottom: i < 4 ? "1px solid var(--border)" : "none" }}>
               <div style={{ width: 22, height: 22, background: `linear-gradient(135deg, var(--rose), var(--caramel))`, borderRadius: 6, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 11, color: "white", fontWeight: 700 }}>{i + 1}</div>
               <div style={{ flex: 1 }}>

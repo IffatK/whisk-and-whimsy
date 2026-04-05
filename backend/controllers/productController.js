@@ -45,7 +45,8 @@ const result = await pool.query(
     p.name,
     p.description,
     p.price,
-    p.image_url AS image
+    p.image_url AS image,
+    c.name AS category
   FROM products p
   LEFT JOIN categories c ON p.category_id = c.category_id
   ${where}

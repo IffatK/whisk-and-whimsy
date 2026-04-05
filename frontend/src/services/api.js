@@ -27,7 +27,8 @@ export const fetchUserOrders = () => API.get("/orders/user");
 // ================= WISHLIST =================
 export const fetchUserWishlist = () => API.get("/wishlist/user");
 export const removeWishlistItem = (id) => API.delete(`/wishlist/${id}`);
-
+export const fetchAllOrders = () => API.get("/orders/all");
+export const fetchAllUsers = () => API.get("/users/all");
 // ================= ADDRESS =================
 export const getAddresses = () => API.get("/address");
 export const addAddress = (data) => API.post("/address", data);

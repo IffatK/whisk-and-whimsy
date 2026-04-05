@@ -97,8 +97,13 @@ const MenuCardsSection = ({
     const matchesCategory =
       !selectedCategory || elem.category === selectedCategory;
 
-    const matchesPrice =
-      !selectedPrice || selectedPrice(elem.price);
+    const matchesPrice = (() => {
+      if (!selectedPrice) return true;
+      if (typeof selectedPrice === "function") return selectedPrice(elem.price);
+      if (typeof selectedPrice.fn === "function") return selectedPrice.fn(elem.price);
+      if (typeof selectedPrice.for === "function") return selectedPrice.for(elem.price);
+      return true;
+    })();
 
     return matchesSearch && matchesCategory && matchesPrice;
   });
