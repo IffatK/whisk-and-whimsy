@@ -38,7 +38,7 @@ A modern full-stack bakery web application that delivers a delightful online exp
 
 ### Database
 
-* PostgreSQL (or your DB)
+* PostgreSQL (Supabase)
 
 ### Other Tools
 
