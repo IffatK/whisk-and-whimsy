@@ -1,0 +1,144 @@
+/* PAGE BACKGROUND */
+.login-page {
+  min-height: 100vh;
+  background-color: #fff6e5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+/* MAIN CARD */
+.login-card {
+  display: flex;
+  width: 100%;
+  max-width: 1000px;
+  background-color: #fffdf8;
+  border-radius: 28px;
+  box-shadow: 0 25px 50px rgba(107, 62, 30, 0.25);
+  overflow: hidden;
+}
+
+/* LEFT – FORM */
+.login-form {
+  flex: 1;
+  padding: 3rem;
+}
+
+.login-form h2 {
+   font-family: "Merienda", cursive;
+  font-size: 2.4rem;
+  color: #6b3e1e;
+  margin-bottom: 0.4rem;
+}
+
+.login-form .subtitle {
+  color: #ff6b81;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+
+/* INPUTS */
+.login-form input {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  margin-bottom: 1.1rem;
+  border-radius: 14px;
+  border: 2px solid #f1d5c9;
+  background-color: #fffaf3;
+  outline: none;
+  font-size: 0.95rem;
+}
+
+.login-form input::placeholder {
+  color: #b38b73;
+}
+
+.login-form input:focus {
+  border-color: #ff8fa3;
+  background-color: #ffffff;
+}
+
+/* BUTTON */
+.login-form button {
+  width: 100%;
+  padding: 0.95rem;
+  border-radius: 20px;
+  border: none;
+  background: linear-gradient(135deg, #ff6b81, #ff9aa2);
+  color: white;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.login-form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(255, 107, 129, 0.45);
+}
+
+/* MESSAGE */
+.message {
+  margin-top: 1.2rem;
+  font-size: 0.95rem;
+  color: #6b3e1e;
+}
+
+/* SIGNUP LINK */
+.signup-link {
+  margin-top: 1.6rem;
+  color: #6b3e1e;
+  font-size: 0.95rem;
+}
+
+.signup-link a {
+  color: #ff6b81;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.signup-link a:hover {
+  text-decoration: underline;
+}
+
+/* RIGHT – IMAGE */
+.login-visual {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+/* IMAGE FULL COVER */
+.login-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-top-right-radius: 28px;
+  border-bottom-right-radius: 28px;
+}
+
+/* SOFT PINK OVERLAY (COZY EFFECT) */
+.login-visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 214, 220, 0.18);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .login-card {
+    flex-direction: column;
+  }
+
+  .login-visual {
+    height: 280px;
+  }
+
+  .login-visual img {
+    border-radius: 0;
+  }
+}

@@ -1,0 +1,458 @@
+/* Menu page  */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+}
+
+.banner {
+  background-image: url(../src/images/banner.jpg);
+  background-color: #673f0a;
+  background-blend-mode: luminosity;
+  height: 220px;
+
+  display: flex;
+  color: #9c661f;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.2em;
+  justify-content: center;
+  padding: 1em 4em;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+.banner .left {
+  background-color: #fef7e7;
+  border: 0.4em solid #c65720;
+  border-radius: 2em;
+  display: flex;
+  position: relative;
+  height: 90%;
+  width: 60%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1em;
+}
+.banner h1 {
+  font-size: 2em;
+  font-family: "Merienda", cursive;
+  font-weight: 900;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.7em;
+  line-height: 1.2em;
+  text-align: center;
+}
+.banner h1 .highlight {
+  font-family: "Merienda", cursive;
+  position: relative;
+}
+.banner .macroon {
+  width: 220px;
+  rotate: calc(30deg);
+  position: absolute;
+  top: -3%;
+  left: -10%;
+}
+.banner .cakebanner {
+  width: 200px;
+  rotate: calc(-10deg);
+  position: absolute;
+  top: -33%;
+  left: 80%;
+}
+.banner .bannerimg2 {
+  width: 120px;
+  rotate: calc(-8deg);
+  position: absolute;
+  left: -6%;
+  top: -80%;
+}
+.banner .swiss {
+  width: 40px;
+
+  position: absolute;
+  left: 83%;
+  top: -1%;
+}
+.banner p {
+  width: 70%;
+  color: #ee627e;
+  font-size: 0.9em;
+  text-align: center;
+}
+/* media query for banner */
+@media (max-width: 1320px) {
+  .banner h1 {
+    font-size: 1.8em;
+  }
+
+  .banner .macroon {
+    width: 200px;
+  }
+  .banner .cakebanner {
+    width: 170px;
+
+    top: -23%;
+  }
+  .banner .bannerimg2 {
+    width: 100px;
+
+    left: -5%;
+    top: -80%;
+  }
+  .banner .swiss {
+    width: 40px;
+
+    left: 83%;
+    top: -1%;
+  }
+}
+@media (max-width: 1068px) {
+  .banner .macroon {
+    width: 190px;
+  }
+  .banner .cakebanner {
+    width: 150px;
+    left: 85%;
+    top: -10%;
+  }
+  .banner h1 {
+    font-size: 1.7em;
+  }
+  .banner .swiss {
+    width: 40px;
+
+    left: 83%;
+    top: -8%;
+  }
+}
+@media (max-width: 1228px) {
+  .banner .left {
+    width: 70%;
+  }
+  .banner p {
+    font-size: 0.8em;
+  }
+}
+@media (max-width: 1000px) {
+  .banner .left {
+    width: 80%;
+  }
+}
+@media (max-width: 890px) {
+  .banner .left {
+    width: 90%;
+  }
+}
+@media (max-width: 780px) {
+  .banner .left {
+    width: 95%;
+  }
+}
+@media (max-width: 720px) {
+  .banner .left {
+    width: 98%;
+  }
+
+  .banner .macroon {
+    width: 150px;
+    top: 13%;
+  }
+  .banner .cakebanner {
+    width: 140px;
+
+    top: -13%;
+  }
+}
+@media (max-width: 620px) {
+  .banner h1 {
+    font-size: 1.2em;
+  }
+  .banner .bannerimg2 {
+    width: 70px;
+
+    left: -4%;
+    top: -90%;
+  }
+  .banner .swiss {
+    width: 30px;
+
+    left: 83%;
+    top: -9%;
+  }
+}
+@media (max-width: 500px) {
+  .banner .left {
+    width: 100%;
+  }
+  .banner .macroon {
+    width: 100px;
+    top: 50%;
+  }
+  .banner .cakebanner {
+    width: 90px;
+    top: 25%;
+  }
+}
+@media (max-width: 412px) {
+  .banner {
+    padding: 0.5em;
+    margin: 0;
+  }
+  .banner .left h1 {
+    width: 0.9em;
+    width: 100%;
+  }
+  .banner .left p {
+    width: 80%;
+    font-size: 0.6em;
+  }
+  .banner .cakebanner {
+    width: 80px;
+    top: 45%;
+  }
+  .banner .swiss {
+    width: 25px;
+
+    left: 75%;
+    top: -11%;
+  }
+  .banner .bannerimg2 {
+    left: 6%;
+  }
+}
+@media (max-width: 370px) {
+  .banner {
+    width: 105%;
+  }
+}
+/* Main Section */
+.menucardcontents {
+  display: flex;
+  flex-direction: column;
+
+  padding: 1em 2em;
+  height: 100vh auto;
+  width: 100%;
+}
+.main-menu-section {
+  display: grid;
+  grid-template-columns: 20% 80%;
+}
+
+.menu-card-container {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+.search-section {
+  margin: 1em 0;
+  display: flex;
+  gap: 0.5em;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 5%;
+  padding: 0em 3em;
+  width: 100%;
+}
+
+.search-section input {
+  border: none;
+  border-radius: 1em;
+  padding: 0.8em 2.5em 0.8em 1.3em; /* Add padding-right for the icon */
+  font-size: 0.9em;
+  outline: none;
+  width: 350px;
+  background-color: #ff6b81;
+  color: white;
+  transition: 0.3s ease-in-out;
+}
+.search-container {
+  position: relative;
+  display: flex;
+  margin-right: 1.5em;
+  align-items: center;
+}
+.search-section input::placeholder {
+  color: white;
+  opacity: 0.7;
+  font-size: 0.8em;
+}
+.search-section .search-icon {
+  position: absolute;
+  right: 15px; /* Adjust spacing */
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fef7e7;
+  font-size: 0.8em;
+  cursor: pointer;
+}
+.search-section input:focus {
+  background-color: #ff5068;
+  box-shadow: 0px 0px 10px rgba(247, 107, 135, 0.6);
+}
+
+.search-section input:hover {
+  background-color: #ff5068;
+  transition: 0.3s ease-in-out;
+}
+
+.menu-card-container .card {
+  width: 270px;
+  padding: 0.9em 0.8em;
+  background-color: #ac8b5d18;
+}
+.menu-card-container img {
+  border-radius: 1em;
+}
+.menu-card-container .dessert-subtitle {
+  font-size: 0.7em;
+}
+.menu-card-container .dessert-name {
+  font-size: 1em;
+}
+@media (max-width: 1115px) {
+  .main-menu-section {
+    display: grid;
+    grid-template-columns: 30% 60%;
+  }
+}
+@media (max-width: 1058px) {
+  .menu-card-container {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.pagination {
+  display: flex;
+  gap: 0.5em;
+  justify-content: center; /* Ensures buttons are centered */
+  align-items: center;
+
+  margin-top: 2em;
+  width: 100%;
+}
+.pagination p {
+  color: #673f0a;
+  font-family: "Merienda", cursive;
+  font-weight: 700;
+}
+.pagination button {
+  background-color: #eee3cb;
+  color: #673f0a;
+  outline: none;
+  border: none;
+  font-family: "Merienda", cursive;
+  font-weight: 800;
+  border-radius: 0.7em;
+  padding: 0.7em 1.5em;
+  cursor: pointer;
+}
+.pagination button:disabled {
+  background-color: #cac5c5;
+  color: #707070;
+  cursor: not-allowed;
+}
+/* .filter-panel {
+  padding: 2em;
+
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+ 
+} */
+.filterbutton {
+  background-color: #ee627e;
+  color: #fef7e7;
+  padding: 0.6em 1.2em;
+  font-size: 0.95em;
+  font-weight: 700;
+  border: none;
+  border-radius: 1em;
+  cursor: pointer;
+  font-family: "Merienda", cursive;
+  transition: all 0.3s ease;
+  box-shadow: 0px 4px 8px rgba(238, 98, 126, 0.3);
+}
+
+.filterbutton:hover {
+  background-color: #d94e69;
+  transform: translateY(-2px);
+}
+
+.filterbutton:active {
+  transform: scale(0.98);
+}
+
+.filtermenu {
+  padding: 2em 3em;
+  box-shadow: 1px 1px 2px 1px #673f0a1a;
+  border-top-right-radius: 2em;
+  display: flex;
+  background-color: #eee3cb;
+  width: 300px;
+  flex-direction: column;
+  overflow-y: auto;
+  z-index: 1001;
+  gap: 2.9em;
+
+  border-bottom-right-radius: 2em;
+}
+.filter-group {
+  position: relative;
+  display: flex;
+  margin-top: 2em;
+  flex-direction: column;
+}
+
+.filter {
+  display: flex;
+
+  flex-direction: column;
+  gap: 2em;
+}
+
+.filter-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.filter-list li {
+  cursor: pointer;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  color: #9c661f;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+}
+
+.filter-list li:hover {
+  background-color: #f0f0f0;
+}
+.filter-group h4 {
+  font-family: "Merienda", cursive;
+  margin-bottom: 1em;
+  font-weight: 1000;
+  color: #9c661f;
+  font-size: 1.3em;
+}
+.filter-list li.active {
+  background-color: #ee627e;
+  color: #fff;
+  border-color: none;
+}

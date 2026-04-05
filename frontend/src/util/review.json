@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "review": "An absolute delight! SweetCharm's pastries are simply exquisite. The friendly staff made the experience even more enjoyable. I'll be spreading the word about this charming pastry shop!",
+    "name": "Daniel Clark",
+    "date": "February 12, 2024"
+  },
+  {
+    "id": 2,
+    "review": "SweetCharm is a hidden gem! The pastries are heavenly, and the cozy atmosphere makes it the perfect spot for a sweet treat. Will definitely be returning!",
+    "name": "Sarah Smith",
+    "date": "February 23, 2024"
+  },
+  {
+    "id": 3,
+    "review": "Visited SweetCharm for the first time and was blown away by the quality of their pastries. The attention to detail is evident, and the flavors are exceptional. Can't wait to bring friends along next time!",
+    "name": "Jessica Taylor",
+    "date": "March 9, 2024"
+  },
+  {
+    "id": 4,
+    "review": "SweetCharm's pastries are an absolute joy! The variety is incredible, and each one is crafted to perfection. The cozy environment makes it a must-visit. I'll be back soon!",
+    "name": "Emily Johnson",
+    "date": "March 25, 2024"
+  },
+  {
+    "id": 5,
+    "review": "A delightful experience! The pastries at SweetCharm are bursting with flavor, and the staff is warm and welcoming. It's my new favorite spot for a sweet indulgence.",
+    "name": "Michael Brown",
+    "date": "March 25, 2024"
+  },
+  {
+    "id": 6,
+    "review": "SweetCharm never fails to impress! Their pastries are a work of art, and the taste is divine. The ambiance is perfect for a relaxed afternoon treat. Highly recommend!",
+    "name": "Olivia Martinez",
+    "date": "April 18, 2024"
+  },
+  {
+    "id": 7,
+    "review": "Absolutely loved my visit to SweetCharm! The pastries are not only delicious but also beautifully presented. The friendly staff made my day. Can't wait to return!",
+    "name": "Alexander Lee",
+    "date": "May 1, 2024"
+  }
+]

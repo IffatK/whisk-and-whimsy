@@ -1,0 +1,323 @@
+.aboutus {
+  background-color: #fff4e6;
+  min-height: 100vh;
+  max-height: 100%;
+}
+
+.aboutuspage {
+  background-image: url(../src/images/banner.jpg);
+  background-color: #673f0a;
+  background-blend-mode: luminosity;
+  height: 200px;
+  background-size: 100%;
+  display: flex;
+  color: #9c661f;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.2em;
+  justify-content: center;
+  padding: 1em 4em;
+  overflow-x: hidden;
+
+  overflow-y: hidden;
+}
+.aboutuspage .aboutcontent {
+  background-color: #fef7e7;
+  border: 0.4em solid #c65720;
+  border-radius: 2em;
+  display: flex;
+  position: relative;
+
+  height: 90%;
+  text-align: center;
+  width: 55%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1em;
+}
+.aboutuspage h1 {
+  font-family: "Merienda", cursive;
+  font-weight: 900;
+  font-size: 2.3em;
+  margin-bottom: 0.3em;
+  position: relative;
+}
+.aboutuspage p {
+  font-family: "Merienda", cursive;
+  color: #ee627e;
+}
+.about-title .whisk {
+  position: absolute;
+  width: 50px;
+  rotate: calc(50deg);
+  left: 62%;
+  top: 0;
+}
+.bannerleftimg {
+  position: absolute;
+  width: 100px;
+  rotate: calc(20deg);
+  left: 28%;
+
+  top: 5%;
+}
+
+.aboutuspage .aboutcontent .leftimg {
+  position: absolute;
+  width: 180px;
+  /* rotate: calc(20deg); */
+  top: -35%;
+  left: -7%;
+}
+
+.aboutuspage .aboutcontent .rightimg {
+  position: absolute;
+  width: 145px;
+  rotate: calc(60deg);
+  top: -20%;
+  right: -6%;
+}
+.sticky-container {
+  /* background-image: url("background-about.jpg"); */
+  background-repeat: no-repeat;
+  background-size: cover; /* changed from 100% to make it adapt beautifully */
+  background-position: center;
+  background-attachment: fixed; /* optional: gives a nice parallax feel */
+  padding: 4em 2em;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2em;
+}
+.sticky-card {
+  display: flex;
+  gap: 2em;
+
+  text-align: center;
+}
+.content {
+  background-image: url("../src/images/bannerabout.jpg"); /* Make this a soft PNG */
+  background-repeat: no-repeat;
+  background-position: top right;
+  background-size: 60px;
+  width: 280px;
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.08), 5px 6px 12px rgba(0, 0, 0, 0.05);
+  border: 1px dashed rgba(0, 0, 0, 0.1);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  height: 220px;
+  border-top-right-radius: 50%;
+  border-top-left-radius: 50%;
+  padding: 4em 2em;
+}
+.content:hover {
+  animation: wiggle 0.4s ease-in-out;
+  box-shadow: 0 0 10px #ffd6e0, 0 0 20px #fff;
+}
+
+@keyframes wiggle {
+  0% {
+    transform: rotate(-4deg);
+  }
+  25% {
+    transform: rotate(4deg);
+  }
+  50% {
+    transform: rotate(-3deg);
+  }
+  75% {
+    transform: rotate(3deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.circle {
+  height: 20px;
+
+  width: 20px;
+  top: 10%;
+  position: absolute;
+}
+.stickytitle {
+  font-family: "Merienda", cursive;
+  font-weight: 1000;
+  font-size: 1.6em;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 0.5em;
+}
+.stickysubtitle {
+  font-family: "Merienda", cursive;
+  color: #3a1c1c;
+}
+.mainabout {
+  display: flex;
+
+  margin-top: 2em;
+
+  flex-direction: column;
+}
+
+.mainabout .first {
+  display: flex;
+
+  justify-content: space-evenly;
+
+  gap: 3em;
+}
+.mainabout .first img {
+  height: 400px;
+}
+.makers-section {
+  background-color: #fffaf2;
+  padding: 5rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.section-title {
+  font-family: "Merienda", cursive;
+  font-weight: 900;
+  font-size: 2.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  color: #ee627e;
+  margin-bottom: 2rem;
+  position: relative;
+}
+.left-img {
+  width: 60px;
+}
+.makers-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2.5rem;
+}
+
+.maker-card {
+  background-color: #fff0e6;
+  border-radius: 1.5rem;
+  box-shadow: 3px 4px 0px #ee627e48, 6px 8px 12px rgba(0, 0, 0, 0.07);
+  width: 320px;
+  padding: 1.8rem;
+  position: relative;
+  transition: transform 0.3s ease;
+  border: 2px dashed #ee627e;
+}
+
+.maker-card:hover {
+  transform: translateY(-6px);
+}
+
+.maker-img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 1rem;
+  margin-bottom: 1.2rem;
+  border: 3px solid #ffd8c2;
+}
+
+.maker-info h3 {
+  font-family: "Merienda", cursive;
+  font-weight: 900;
+  font-size: 1.5rem;
+  color: #803d3d;
+  margin-bottom: 0.4rem;
+}
+
+.role {
+  font-style: italic;
+  font-size: 1rem;
+  margin-bottom: 0.6rem;
+  color: #e27d7d;
+}
+
+.maker-info p {
+  color: #5a3838;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.maker-card::after {
+  content: "✨";
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  font-size: 1.8rem;
+  animation: sparkle 1.5s ease-in-out infinite alternate;
+  color: #ffdcdc;
+}
+
+@keyframes sparkle {
+  0% {
+    transform: rotate(0deg) scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: rotate(15deg) scale(1.2);
+    opacity: 1;
+  }
+}
+.stats-wrapper {
+  padding: 2rem;
+  text-align: center;
+}
+
+.stats-heading {
+  font-size: 2em;
+  margin-bottom: 1em;
+  color: #e75471;
+  font-weight: 900;
+  font-family: "Merienda", cursive;
+}
+.stats-title {
+  font-size: 2em;
+  margin-bottom: 1em;
+  font-family: "Merienda", cursive;
+  color: #5e2d2d;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+}
+
+.stat-card {
+  border-radius: 1rem;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 220px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+}
+
+.stat-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.stat-number {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+  color: #5e2d2d;
+}
+
+.stat-label {
+  font-size: 0.95rem;
+  color: #4b2e2e;
+}

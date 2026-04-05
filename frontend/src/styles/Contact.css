@@ -1,0 +1,132 @@
+.contact-page {
+  font-family: "Merienda", cursive;
+  color: #9c661f;
+  background-color: #fef7e7;
+}
+
+.contact-banner {
+  background-color: #fef7e7;
+  border: 0.4em solid #c65720;
+  border-radius: 2em;
+  display: flex;
+  position: relative;
+  height: 90%;
+  width: 60%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1em;
+}
+.contactbanner {
+  background-image: url(../src/images/banner.jpg);
+  background-color: #673f0a;
+  background-blend-mode: luminosity;
+  height: 200px;
+
+  display: flex;
+  color: #9c661f;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.2em;
+  justify-content: center;
+  padding: 1em 4em;
+  overflow-x: hidden;
+
+  overflow-y: hidden;
+}
+.contact-banner h1 {
+  font-size: 2.5em;
+  font-family: "Merienda", cursive;
+  font-weight: 1000;
+  color: #9c661f;
+}
+
+.contact-banner .highlight {
+  color: #ee627e;
+}
+
+.contact-banner p {
+  font-size: 1em;
+  color: #9c661f;
+}
+
+.macaroon-decor,
+.cake-decor {
+  position: absolute;
+  width: 100px;
+  opacity: 0.9;
+}
+
+.macaroon-decor {
+  top: -10px;
+  left: 20px;
+  transform: rotate(15deg);
+}
+
+.cake-decor {
+  top: -20px;
+  right: 30px;
+  transform: rotate(-10deg);
+}
+
+.contact-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3em;
+  justify-content: center;
+  padding: 3em 2em;
+}
+
+.contact-form,
+.contact-details {
+  background-color: #fff4e2;
+  padding: 2em;
+  border-radius: 1.5em;
+  box-shadow: 0px 0px 10px rgba(204, 157, 119, 0.2);
+  width: 350px;
+}
+
+.contact-form h2,
+.contact-details h2 {
+  margin-bottom: 1em;
+  color: #ee627e;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  margin-bottom: 1em;
+  padding: 0.8em;
+  border-radius: 1em;
+  border: 1px solid #f3d9a4;
+  background-color: #fffaf3;
+  color: #9c661f;
+}
+
+.contact-form button {
+  background-color: #ee627e;
+  color: white;
+  padding: 0.8em 1.2em;
+  border-radius: 1em;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  transition: 0.3s ease-in-out;
+}
+
+.contact-form button:hover {
+  background-color: #d94e6e;
+}
+
+.contact-details .info-box {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  margin: 1em 0;
+}
+
+.icon {
+  color: #ee627e;
+  font-size: 1.3em;
+}

@@ -1,0 +1,202 @@
+[
+  {
+    "id": 1,
+    "name": "Tiramisu Delight",
+    "subtitle": "Classic Italian dessert with layers mascarpone cream",
+    "price": 145,
+    "image": "../src/images/img-1.jpg",
+    "category": "Cakes & Cheesecakes"
+  },
+  {
+    "id": 2,
+    "name": "Chocolate Lava Cake",
+    "subtitle": "A rich chocolate cake with a molten center",
+    "price": 75,
+    "image": "../src/images/img-2.jpg",
+    "category": "Cakes & Cheesecakes"
+  },
+  {
+    "id": 3,
+    "name": "Raspberry Mousse",
+    "subtitle": "A light and airy raspberry-flavored dessert with a creamy texture",
+    "price": 110,
+    "image": "../src/images/img-3.jpg",
+    "category": "Puddings & Custards"
+  },
+  {
+    "id": 4,
+    "name": "Vanilla Panna Cotta",
+    "subtitle": "A silky Italian dessert made with vanilla-infused cream",
+    "price": 20,
+    "image": "../src/images/img-4.jpg",
+    "category": "Puddings & Custards"
+  },
+  {
+    "id": 5,
+    "name": "Macaron Assortment",
+    "subtitle": "A selection of delicate, colorful almond-based cookies",
+    "price": 90,
+    "image": "../src/images/img-5.jpg",
+    "category": "Cookies & Biscuits"
+  },
+  {
+    "id": 6,
+    "name": "Mango Sago Pudding",
+    "subtitle": "A refreshing dessert with mango puree and chewy sago pearls",
+    "price": 35,
+    "image": "../src/images/img-6.jpg",
+    "category": "Puddings & Custards"
+  },
+  {
+    "id": 7,
+    "name": "Blueberry Cheesecake",
+    "subtitle": "A creamy cheesecake topped with blueberry compote",
+    "price": 70,
+    "image": "../src/images/img-7.jpg",
+    "category": "Cakes & Cheesecakes"
+  },
+  {
+    "id": 8,
+    "name": "Pistachio Baklava",
+    "subtitle": "A flaky, honey-drenched pastry filled with pistachios",
+    "price": 50,
+    "image": "../src/images/img-8.jpg",
+    "category": "Doughnuts & Pastries"
+  },
+  {
+    "id": 9,
+    "name": "Chocolate Chip Cookies",
+    "subtitle": "Classic cookies with rich chocolate chips",
+    "price": 30,
+    "image": "../src/images/img-9.jpg",
+    "category": "Cookies & Biscuits"
+  },
+  {
+    "id": 10,
+    "name": "Red Velvet Cupcakes",
+    "subtitle": "Soft red velvet cupcakes with cream cheese frosting",
+    "price": 40,
+    "image": "../src/images/img-10.jpg",
+    "category": "Cupcakes & Muffins"
+  },
+  {
+    "id": 11,
+    "name": "Strawberry Shortcake",
+    "subtitle": "Delicious shortcake layered with fresh strawberries and cream",
+    "price": 60,
+    "image": "../src/images/img-11.jpg",
+    "category": "Cakes & Cheesecakes"
+  },
+  {
+    "id": 12,
+    "name": "Donut Holes",
+    "subtitle": "Soft and fluffy donut holes coated with powdered sugar",
+    "price": 25,
+    "image": "../src/images/img-12.jpg",
+    "category": "Doughnuts & Pastries"
+  },
+  {
+    "id": 13,
+    "name": "Lemon Meringue Pie",
+    "subtitle": "A tangy lemon filling topped with fluffy meringue",
+    "price": 155,
+    "image": "../src/images/img-13.jpg",
+    "category": "Cakes & Cheesecakes"
+  },
+  {
+    "id": 14,
+    "name": "Carrot Cake",
+    "subtitle": "A spiced cake filled with grated carrots and topped with cream cheese frosting",
+    "price": 65,
+    "image": "../src/images/img-14.jpg",
+    "category": "Cakes & Cheesecakes"
+  },
+  {
+    "id": 15,
+    "name": "Chocolate Truffles",
+    "subtitle": "Rich chocolate ganache coated in cocoa powder",
+    "price": 40,
+    "image": "../src/images/img-15.jpg",
+    "category": "Chocolates & Truffles"
+  },
+  {
+    "id": 16,
+    "name": "Fruit Tart",
+    "subtitle": "A buttery tart shell filled with pastry cream and topped with fresh fruits",
+    "price": 50,
+    "image": "../src/images/img-16.jpg",
+    "category": "Cakes & Cheesecakes"
+  },
+  {
+    "id": 17,
+    "name": "Pineapple Upside-Down Cake",
+    "subtitle": "A caramelized pineapple topping on a moist cake",
+    "price": 40,
+    "image": "../src/images/img-17.jpg",
+    "category": "Cakes & Cheesecakes"
+  },
+  {
+    "id": 18,
+    "name": "Churros",
+    "subtitle": "Crispy fried dough sticks coated in cinnamon sugar",
+    "price": 30,
+    "image": "../src/images/img-18.jpg",
+    "category": "Doughnuts & Pastries"
+  },
+  {
+    "id": 19,
+    "name": "Peach Cobbler",
+    "subtitle": "Sweet peaches topped with a biscuit crust",
+    "price": 45,
+    "image": "../src/images/img-19.jpg",
+    "category": "Puddings & Custards"
+  },
+  {
+    "id": 20,
+    "name": "Ice Cream Sandwiches",
+    "subtitle": "A scoop of ice cream between two cookies",
+    "price": 35,
+    "image": "../src/images/img-20.jpg",
+    "category": "Ice Cream & Sorbets"
+  },
+  {
+    "id": 21,
+    "name": "Chocolate Eclairs",
+    "subtitle": "Flaky pastry filled with chocolate cream",
+    "price": 50,
+    "image": "../src/images/img-21.jpg",
+    "category": "Doughnuts & Pastries"
+  },
+  {
+    "id": 22,
+    "name": "Coconut Macaroons",
+    "subtitle": "Chewy coconut cookies dipped in chocolate",
+    "price": 25,
+    "image": "../src/images/img-22.jpg",
+    "category": "Cookies & Biscuits"
+  },
+  {
+    "id": 23,
+    "name": "Mango Cheesecake",
+    "subtitle": "A creamy cheesecake topped with a layer of sweet mango puree",
+    "price": 75,
+    "image": "../src/images/img-23.jpg",
+    "category": "Cakes & Cheesecakes"
+  },
+  {
+    "id": 24,
+    "name": "Choco Lava Cupcakes",
+    "subtitle": "Cupcakes filled with molten chocolate center",
+    "price": 60,
+    "image": "../src/images/img-24.jpg",
+    "category": "Cupcakes & Muffins"
+  },
+  {
+    "id": 25,
+    "name": "Nutella Doughnuts",
+    "subtitle": "Soft doughnuts filled with Nutella chocolate spread",
+    "price": 40,
+    "image": "../src/images/img-25.jpg",
+    "category": "Doughnuts & Pastries"
+  }
+]
