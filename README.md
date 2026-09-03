@@ -29,35 +29,35 @@ Built using React, Express, and PostgreSQL (Supabase).
 ### 🏠 1. Home Page & Menu
 *Landing page showcasing fresh artisan pastries and the full paginated bakery menu.*
 
-![Home Page](image-1.png)
-![Bakery Menu](image-2.png)
+![Home Page](./readme-img/image-1.png)
+![Bakery Menu](./readme-img/image-2.png)
 
 ---
 
 ### 🛒 2. Cart Drawer & Product Details
 *Slide-out cart drawer with live tax calculations and dedicated item detail pages.*
 
-![Cart Drawer](image-3.png)
-![Product Details](image-4.png)
+![Cart Drawer](./readme-img/image-13.png)
+![Product Details](./readme-img/image-4.png)
 
 ---
 
 ### 💳 3. Checkout & Mock Payment Page
 *Interactive dummy checkout form simulating payment verification and order confirmation.*
 
-![Checkout & Payment](image-5.png)
-![Payment](image-6.png)
-![confirm](image-7.png)
-![placed](image-8.png)
+![Checkout & Payment](./readme-img/image-14.png)
+![Payment](./readme-img/image-15.png)
+![confirm](./readme-img/image-16.png)
+![placed](./readme-img/image-17.png)
 ---
 
 ### 📊 4. Admin Analytics & Product Dashboard
 *Comprehensive dashboard displaying sales analytics, recent customer orders, and product CRUD tools.*
 
-![Admin Analytics](image-9.png)
-![Admin Product Management](image-10.png)
-![order details](image-11.png)
-![analytics](image-12.png)
+![Admin Analytics](./readme-img/image-9.png)
+![Admin Product Management](./readme-img/image-10.png)
+![order details](./readme-img/image-11.png)
+![analytics](./readme-img/image-12.png)
 
 ---
 
