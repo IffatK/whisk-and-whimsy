@@ -37,7 +37,7 @@ Built using React, Express, and PostgreSQL (Supabase).
 ### 🛒 2. Cart Drawer & Product Details
 *Slide-out cart drawer with live tax calculations and dedicated item detail pages.*
 
-![Cart Drawer](image-3.png)
+![Cart Drawer](image-13.png)
 ![Product Details](image-4.png)
 
 ---
@@ -45,10 +45,10 @@ Built using React, Express, and PostgreSQL (Supabase).
 ### 💳 3. Checkout & Mock Payment Page
 *Interactive dummy checkout form simulating payment verification and order confirmation.*
 
-![Checkout & Payment](image-5.png)
-![Payment](image-6.png)
-![confirm](image-7.png)
-![placed](image-8.png)
+![Checkout & Payment](image-14.png)
+![Payment](image-15.png)
+![confirm](image-16.png)
+![placed](image-17.png)
 ---
 
 ### 📊 4. Admin Analytics & Product Dashboard
