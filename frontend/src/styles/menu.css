@@ -237,10 +237,9 @@
 .menucardcontents {
   display: flex;
   flex-direction: column;
-
   padding: 1em 2em;
-  height: 100vh auto;
   width: 100%;
+  box-sizing: border-box; /* Ensures padding doesn't overflow screen width */
 }
 .main-menu-section {
   display: grid;
@@ -248,12 +247,11 @@
 }
 
 .menu-card-container {
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 1em;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive grid columns */
+  gap: 1.5em;
+  width: 100%;
+  margin-top: 1.5em;
 }
 .search-section {
   margin: 1em 0;
@@ -308,15 +306,63 @@
 }
 
 .menu-card-container .card {
-  width: 270px;
-  padding: 0.9em 0.8em;
+  width: 100%; /* Spans full grid cell instead of rigid fixed width */
+  box-sizing: border-box;
+  padding: 1em;
   background-color: #ac8b5d18;
+  border-radius: 1.2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .menu-card-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Prevents image distortion */
   border-radius: 1em;
 }
 .menu-card-container .dessert-subtitle {
   font-size: 0.7em;
+}
+
+/* Disabled & Out of Stock Button Styling */
+.add-to-cart-btn.disabled,
+.add-to-cart-btn:disabled {
+  background-color: #d1c7bd !important;
+  color: #7d7368 !important;
+  cursor: not-allowed !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Stock Badges on Images */
+.menu-card-img-wrap {
+  position: relative;
+}
+
+.stock-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  border-radius: 12px;
+  color: #fff;
+}
+
+.stock-badge.sold-out {
+  background-color: #e74c3c;
+}
+
+.stock-badge.low-stock {
+  background-color: #e67e22;
+}
+.menu-card-container .menu-card-img-wrap {
+  width: 100%;
+  height: 180px; /* Gives images a clean uniform height */
+  overflow: hidden;
+  border-radius: 1em;
 }
 .menu-card-container .dessert-name {
   font-size: 1em;
@@ -327,13 +373,7 @@
     grid-template-columns: 30% 60%;
   }
 }
-@media (max-width: 1058px) {
-  .menu-card-container {
-    display: grid;
-    justify-items: center;
-    grid-template-columns: 1fr 1fr;
-  }
-}
+
 .pagination {
   display: flex;
   gap: 0.5em;

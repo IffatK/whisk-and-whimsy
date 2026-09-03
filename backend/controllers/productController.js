@@ -1,6 +1,7 @@
 import { pool } from "../db/db.js";
 import { asyncHandler } from "../middleware/errorHandler.js";
 
+
 // GET /api/products
 export const getProducts = asyncHandler(async (req, res) => {
   const { category, search, sort = "product_id", order = "ASC", page = 1, limit = 20 } = req.query;
@@ -17,7 +18,6 @@ export const getProducts = asyncHandler(async (req, res) => {
 
   if (category && category !== "All") {
     values.push(category);
-    // Join category name to fetch, or use category_id
     conditions.push(`c.name = $${values.length}`);
   }
 
@@ -38,24 +38,26 @@ export const getProducts = asyncHandler(async (req, res) => {
   values.push(parseInt(limit));
   values.push(offset);
 
-const result = await pool.query(
-  `
-  SELECT 
-    p.product_id,
-    p.name,
-    p.description,
-    p.price,
-    p.image_url AS image,
-    c.name AS category
-  FROM products p
-  LEFT JOIN categories c ON p.category_id = c.category_id
-  ${where}
-  ORDER BY ${sortCol} ${sortOrder}
-  LIMIT $${values.length - 1}
-  OFFSET $${values.length}
-  `,
-  values
-);
+  const result = await pool.query(
+    `
+    SELECT 
+      p.product_id,
+      p.name,
+      p.description,
+      p.price,
+      p.stock_quantity,
+      p.is_available,
+      p.image_url AS image,
+      c.name AS category
+    FROM products p
+    LEFT JOIN categories c ON p.category_id = c.category_id
+    ${where}
+    ORDER BY ${sortCol} ${sortOrder}
+    LIMIT $${values.length - 1}
+    OFFSET $${values.length}
+    `,
+    values
+  );
 
   res.json({
     data: result.rows,

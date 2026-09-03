@@ -54,45 +54,62 @@ const CartDrawer = () => {
               <span>Add some sweet treats!</span>
             </div>
           ) : (
-            cartItems.map((item) => (
-              <div className="cart-item" key={item.product_id}>
-                <img
-                  src={item.image || "/images/fallback.svg"}
-                  alt={item.name}
-                  className="cart-item-img"
-                />
-                <div className="cart-item-info">
-                  <h4>{item.name}</h4>
-                  <p className="cart-item-price">₹{item.price} each</p>
-                  <div className="quantity-controls">
+            cartItems.map((item) => {
+              // Extract maximum stock available for this item
+              const maxStock = Number(item.stock_quantity ?? item.stock ?? 0);
+              const isMaxStockReached = item.quantity >= maxStock;
+
+              return (
+                <div className="cart-item" key={item.product_id}>
+                  <img
+                    src={item.image || "/images/fallback.svg"}
+                    alt={item.name}
+                    className="cart-item-img"
+                  />
+                  <div className="cart-item-info">
+                    <h4>{item.name}</h4>
+                    <p className="cart-item-price">₹{item.price} each</p>
+                    
+                    {/* Quantity Controls */}
+                    <div className="quantity-controls">
+                      <button
+                        className="qty-btn"
+                        onClick={() => updateQuantity(item.product_id, -1)}
+                      >
+                        −
+                      </button>
+                      <span className="qty-value">{item.quantity}</span>
+                      <button
+                        className={`qty-btn ${isMaxStockReached ? "disabled" : ""}`}
+                        onClick={() => updateQuantity(item.product_id, 1)}
+                        disabled={isMaxStockReached}
+                        title={isMaxStockReached ? `Maximum available stock reached (${maxStock})` : ""}
+                      >
+                        +
+                      </button>
+                    </div>
+
+                    {/* Stock Warning Message */}
+                    {isMaxStockReached && (
+                      <span style={{ fontSize: "0.7rem", color: "#d9534f", marginTop: "4px", display: "block" }}>
+                        Max stock limit reached ({maxStock})
+                      </span>
+                    )}
+                  </div>
+                  <div className="cart-item-right">
+                    <p className="cart-item-total">
+                      ₹{(item.price * item.quantity).toFixed(2)}
+                    </p>
                     <button
-                      className="qty-btn"
-                      onClick={() => updateQuantity(item.product_id, -1)}
+                      className="remove-btn"
+                      onClick={() => removeFromCart(item.product_id)}
                     >
-                      −
-                    </button>
-                    <span className="qty-value">{item.quantity}</span>
-                    <button
-                      className="qty-btn"
-                      onClick={() => updateQuantity(item.product_id, +1)}
-                    >
-                      +
+                      🗑
                     </button>
                   </div>
                 </div>
-                <div className="cart-item-right">
-                  <p className="cart-item-total">
-                    ₹{(item.price * item.quantity).toFixed(2)}
-                  </p>
-                  <button
-                    className="remove-btn"
-                    onClick={() => removeFromCart(item.product_id)}
-                  >
-                    🗑
-                  </button>
-                </div>
-              </div>
-            ))
+              );
+            })
           )}
         </div>
 
