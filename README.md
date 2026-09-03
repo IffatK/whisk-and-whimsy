@@ -45,18 +45,18 @@ Built using React, Express, and PostgreSQL (Supabase).
 ### 💳 3. Checkout & Mock Payment Page
 *Interactive dummy checkout form simulating payment verification and order confirmation.*
 
-![Checkout & Payment](./readme-img/./readme-img/image-14.png)
-![Payment](./readme-img/./readme-img/image-15.png)
-![confirm](./readme-img/./readme-img/image-16.png)
-![placed](./readme-img/./readme-img/image-17.png)
+![Checkout & Payment](./readme-img/image-14.png)
+![Payment](./readme-img/image-15.png)
+![confirm](./readme-img/image-16.png)
+![placed](./readme-img/image-17.png)
 ---
 
 ### 📊 4. Admin Analytics & Product Dashboard
 *Comprehensive dashboard displaying sales analytics, recent customer orders, and product CRUD tools.*
 
-![Admin Analytics](./readme-img/./readme-img/image-9.png)
-![Admin Product Management](./readme-img/./readme-img/image-10.png)
-![order details](./readme-img/./readme-img/image-11.png)
+![Admin Analytics](./readme-img/image-9.png)
+![Admin Product Management](./readme-img/image-10.png)
+![order details](./readme-img/image-11.png)
 ![analytics](./readme-img/image-12.png)
 
 ---
